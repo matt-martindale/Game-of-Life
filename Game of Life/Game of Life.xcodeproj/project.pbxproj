@@ -15,6 +15,7 @@
 		C9FB532C25353D67003ADF05 /* Game_of_LifeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FB532B25353D67003ADF05 /* Game_of_LifeTests.swift */; };
 		C9FB533725353D67003ADF05 /* Game_of_LifeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FB533625353D67003ADF05 /* Game_of_LifeUITests.swift */; };
 		C9FB535225353EAB003ADF05 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FB535125353EAB003ADF05 /* MainViewController.swift */; };
+		C9FB5358253542BC003ADF05 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FB5357253542BC003ADF05 /* GridView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		C9FB533625353D67003ADF05 /* Game_of_LifeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game_of_LifeUITests.swift; sourceTree = "<group>"; };
 		C9FB533825353D67003ADF05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9FB535125353EAB003ADF05 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		C9FB5357253542BC003ADF05 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				C9FB534D25353E61003ADF05 /* Resources */,
 				C9FB534C25353E54003ADF05 /* Storyboards */,
 				C9FB534A25353E3B003ADF05 /* View Controllers */,
+				C9FB5356253542A1003ADF05 /* Views */,
 			);
 			path = "Game of Life";
 			sourceTree = "<group>";
@@ -158,6 +161,14 @@
 				C9FB531625353D63003ADF05 /* SceneDelegate.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		C9FB5356253542A1003ADF05 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C9FB5357253542BC003ADF05 /* GridView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,6 +303,7 @@
 			files = (
 				C9FB535225353EAB003ADF05 /* MainViewController.swift in Sources */,
 				C9FB531525353D63003ADF05 /* AppDelegate.swift in Sources */,
+				C9FB5358253542BC003ADF05 /* GridView.swift in Sources */,
 				C9FB531725353D63003ADF05 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
