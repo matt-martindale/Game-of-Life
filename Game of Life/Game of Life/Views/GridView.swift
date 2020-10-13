@@ -11,13 +11,17 @@ class GridView: UIView {
     
     let numberPerRow = 25
     var cells = [String : UIView]()
+    let cellView = UIView()
+    
+    let clear = Notification.Name(rawValue: clearGridKey)
     
     override func draw(_ rect: CGRect) {
+        
+        createObserver()
         let width = rect.width / CGFloat(numberPerRow)
         
         for j in 0..<30 {
             for i in 0..<numberPerRow {
-                let cellView = UIView()
                 cellView.backgroundColor = .clear
                 cellView.frame = CGRect(x: CGFloat(i) * width, y: CGFloat(j) * width, width: width, height: width)
                 cellView.layer.borderWidth = 0.5
@@ -63,6 +67,18 @@ class GridView: UIView {
         let key = "\(j)|\(i)"
         let cellView = cells[key]
         cellView?.backgroundColor = UIColor(named: "atomicRed")
+    }
+    
+    func createObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(clearGrid(notification:)), name: clear, object: nil)
+    }
+    
+    @objc func clearGrid(notification: NSNotification) {
+        print("clearing grid")
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
 }

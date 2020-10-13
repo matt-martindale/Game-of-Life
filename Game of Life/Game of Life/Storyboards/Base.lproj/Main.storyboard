@@ -21,6 +21,20 @@
                                     <constraint firstAttribute="height" constant="450" id="Gjc-pE-gan"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAE-0j-Pqe">
+                                <rect key="frame" x="30" y="534" width="90" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.9550839485" blue="0.92051210679999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="gRf-6k-XWp"/>
+                                    <constraint firstAttribute="width" constant="90" id="njm-eE-kmr"/>
+                                </constraints>
+                                <state key="normal" title="Clear">
+                                    <color key="titleColor" red="0.92165619129999998" green="0.5088051884" blue="0.4053470965" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="clearButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JHv-6Q-sSi"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.98039215686274506" green="0.8901960784313725" blue="0.79607843137254897" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -29,8 +43,13 @@
                             <constraint firstItem="R46-7N-NJ3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="FO3-oX-ypD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="R46-7N-NJ3" secondAttribute="trailing" constant="20" id="ahm-Lf-bck"/>
                             <constraint firstItem="R46-7N-NJ3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="eXu-iE-hO9"/>
+                            <constraint firstItem="cAE-0j-Pqe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="oVm-8H-DeT"/>
+                            <constraint firstItem="cAE-0j-Pqe" firstAttribute="top" secondItem="R46-7N-NJ3" secondAttribute="bottom" constant="20" id="zT8-H2-Yoa"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="clearButton" destination="cAE-0j-Pqe" id="Uxo-4l-6Mg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
