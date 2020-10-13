@@ -29,8 +29,26 @@ class GridView: UIView {
             }
         }
         
+        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(touchGesture)))
         addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(panGesture)))
         
+    }
+    
+    @objc private func touchGesture(gesture: UITapGestureRecognizer) {
+        guard gesture.view != nil else { return }
+        
+        if gesture.state == .ended {
+            let location = gesture.location(in: self)
+            let width = self.frame.width / CGFloat(numberPerRow)
+            
+            let i = Int(location.x / width)
+            let j = Int(location.y / width)
+            print(i, j)
+            
+            let key = "\(j)|\(i)"
+            let cellView = cells[key]
+            cellView?.backgroundColor = UIColor(named: "atomicRed")
+        }
     }
     
     @objc private func panGesture(gesture: UIPanGestureRecognizer) {
@@ -46,5 +64,5 @@ class GridView: UIView {
         let cellView = cells[key]
         cellView?.backgroundColor = UIColor(named: "atomicRed")
     }
-
+    
 }
