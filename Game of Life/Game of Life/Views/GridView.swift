@@ -10,6 +10,7 @@ import UIKit
 class GridView: UIView {
     
     let numberPerRow = 25
+    var cells = [String : UIView]()
     
     override func draw(_ rect: CGRect) {
         let width = rect.width / CGFloat(numberPerRow)
@@ -22,8 +23,28 @@ class GridView: UIView {
                 cellView.layer.borderWidth = 0.5
                 cellView.layer.borderColor = UIColor(named: "atomicRed")?.cgColor
                 addSubview(cellView)
+                
+                let key = "\(j)|\(i)"
+                cells[key] = cellView
             }
         }
+        
+        addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(panGesture)))
+        
+    }
+    
+    @objc private func panGesture(gesture: UIPanGestureRecognizer) {
+        let location = gesture.location(in: self)
+        
+        let width = self.frame.width / CGFloat(numberPerRow)
+        
+        let i = Int(location.x / width)
+        let j = Int(location.y / width)
+        print(i, j)
+        
+        let key = "\(j)|\(i)"
+        let cellView = cells[key]
+        cellView?.backgroundColor = UIColor(named: "atomicRed")
     }
 
 }
