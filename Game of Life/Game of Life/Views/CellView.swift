@@ -31,7 +31,7 @@ class CellView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func toggleCellState(for cellView: CellView?) {
+    func checkCellState(for cellView: CellView?) {
         if cellView?.state == .alive {
             cellView?.state = .dead
         } else {
