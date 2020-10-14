@@ -17,6 +17,7 @@
 		C9FB535225353EAB003ADF05 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FB535125353EAB003ADF05 /* MainViewController.swift */; };
 		C9FB5358253542BC003ADF05 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FB5357253542BC003ADF05 /* GridView.swift */; };
 		C9FB535E25355BE4003ADF05 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FB535D25355BE4003ADF05 /* Constants.swift */; };
+		C9FB536925369462003ADF05 /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FB536825369462003ADF05 /* CellView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		C9FB535125353EAB003ADF05 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C9FB5357253542BC003ADF05 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		C9FB535D25355BE4003ADF05 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C9FB536825369462003ADF05 /* CellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				C9FB5357253542BC003ADF05 /* GridView.swift */,
+				C9FB536825369462003ADF05 /* CellView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 			files = (
 				C9FB535E25355BE4003ADF05 /* Constants.swift in Sources */,
 				C9FB535225353EAB003ADF05 /* MainViewController.swift in Sources */,
+				C9FB536925369462003ADF05 /* CellView.swift in Sources */,
 				C9FB531525353D63003ADF05 /* AppDelegate.swift in Sources */,
 				C9FB5358253542BC003ADF05 /* GridView.swift in Sources */,
 				C9FB531725353D63003ADF05 /* SceneDelegate.swift in Sources */,

@@ -11,7 +11,6 @@ class GridView: UIView {
     
     let numberPerRow = 25
     var cells = [String : UIView]()
-    let cellView = UIView()
     
     let clear = Notification.Name(rawValue: clearGridKey)
     
@@ -22,8 +21,7 @@ class GridView: UIView {
         
         for j in 0..<30 {
             for i in 0..<numberPerRow {
-                cellView.backgroundColor = .clear
-                cellView.frame = CGRect(x: CGFloat(i) * width, y: CGFloat(j) * width, width: width, height: width)
+                let cellView = CellView(state: .alive, width: width, i: i, j: j)
                 cellView.layer.borderWidth = 0.5
                 cellView.layer.borderColor = UIColor(named: "atomicRed")?.cgColor
                 addSubview(cellView)
