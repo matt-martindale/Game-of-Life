@@ -23,12 +23,6 @@ class GridView: UIView {
             for i in 0..<numberPerRow {
                 let cellView = CellView(state: .alive, width: width, i: i, j: j)
                 
-                if cellView.state == .dead {
-                    print("alive")
-                } else {
-                    print("dead")
-                }
-                
                 cellView.layer.borderWidth = 0.5
                 cellView.layer.borderColor = UIColor(named: "atomicRed")?.cgColor
                 addSubview(cellView)
@@ -73,7 +67,8 @@ class GridView: UIView {
         let key = "\(j)|\(i)"
         let cellView = cells[key]
         
-        cellView?.toggleCellState(for: cellView)
+        cellView?.state = .alive
+        cellView?.backgroundColor = UIColor(named: "atomicRed")
     }
     
     // MARK: - Helper Functions
