@@ -10,7 +10,7 @@ import UIKit
 class GridView: UIView {
     
     let numberPerRow = 25
-    var cells = [String : UIView]()
+    var cells = [String : CellView]()
     
     let clear = Notification.Name(rawValue: clearGridKey)
     
@@ -22,6 +22,13 @@ class GridView: UIView {
         for j in 0..<30 {
             for i in 0..<numberPerRow {
                 let cellView = CellView(state: .alive, width: width, i: i, j: j)
+                
+                if cellView.state == .dead {
+                    print("alive")
+                } else {
+                    print("dead")
+                }
+                
                 cellView.layer.borderWidth = 0.5
                 cellView.layer.borderColor = UIColor(named: "atomicRed")?.cgColor
                 addSubview(cellView)
@@ -31,12 +38,12 @@ class GridView: UIView {
             }
         }
         
-        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(touchGesture)))
+        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapGesture)))
         addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(panGesture)))
         
     }
     
-    @objc private func touchGesture(gesture: UITapGestureRecognizer) {
+    @objc private func tapGesture(gesture: UITapGestureRecognizer) {
         guard gesture.view != nil else { return }
         
         if gesture.state == .ended {
@@ -49,7 +56,8 @@ class GridView: UIView {
             
             let key = "\(j)|\(i)"
             let cellView = cells[key]
-            cellView?.backgroundColor = UIColor(named: "atomicRed")
+            
+            cellView?.toggleCellState(for: cellView)
         }
     }
     
@@ -64,8 +72,11 @@ class GridView: UIView {
         
         let key = "\(j)|\(i)"
         let cellView = cells[key]
-        cellView?.backgroundColor = UIColor(named: "atomicRed")
+        
+        cellView?.toggleCellState(for: cellView)
     }
+    
+    // MARK: - Helper Functions
     
     func createObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(clearGrid(notification:)), name: clear, object: nil)
@@ -74,6 +85,7 @@ class GridView: UIView {
     @objc func clearGrid(notification: NSNotification) {
         print("clearing grid")
     }
+    
     
     deinit {
         NotificationCenter.default.removeObserver(self)

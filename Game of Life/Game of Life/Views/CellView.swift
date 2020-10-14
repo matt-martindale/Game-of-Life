@@ -20,7 +20,7 @@ class CellView: UIView {
     var j: Int
     
     init(state: State, width: CGFloat, i: Int, j: Int) {
-        self.state = .alive
+        self.state = .dead
         self.width = width
         self.i = i
         self.j = j
@@ -29,6 +29,20 @@ class CellView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func toggleCellState(for cellView: CellView?) {
+        if cellView?.state == .alive {
+            cellView?.state = .dead
+        } else {
+            cellView?.state = .alive
+        }
+        
+        if cellView?.state == .alive {
+            cellView?.backgroundColor = UIColor(named: "atomicRed")
+        } else {
+            cellView?.backgroundColor = UIColor.clear
+        }
     }
     
 }
