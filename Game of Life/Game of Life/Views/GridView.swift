@@ -12,7 +12,7 @@ class GridView: UIView {
     let numberPerRow = 25
     var cells = [String : CellView]()
     
-    let clear = Notification.Name(rawValue: clearGridKey)
+    let clearGrid = Notification.Name(rawValue: clearGridKey)
     
     override func draw(_ rect: CGRect) {
         
@@ -57,7 +57,7 @@ class GridView: UIView {
             let key = "\(j)|\(i)"
             let cellView = cells[key]
             
-            cellView?.checkCellState(for: cellView)
+            cellView?.toggleCellState(for: cellView)
         }
     }
     
@@ -80,15 +80,14 @@ class GridView: UIView {
     // MARK: - Helper Functions
     
     func createObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(clearGrid(notification:)), name: clear, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(clearGrid(notification:)), name: clearGrid, object: nil)
     }
     
     @objc func clearGrid(notification: NSNotification) {
         for (_, value) in cells {
 //            print(value.state)
             value.state = .dead
-            print("kill them ----------")
-            print(value.state)
+            value.backgroundColor = .clear
         }
         self.setNeedsDisplay()
     }
